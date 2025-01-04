@@ -10,33 +10,12 @@ The Daytona SDK provides powerful process and code execution capabilities throug
 
 ### Running Code
 
-#### Python
-```python
-# Run Python code
-response = workspace.process.code_run('''
-def greet(name):
-    return f"Hello, {name}!"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-print(greet("Daytona"))
-''')
-print(response.result)
+<Tabs groupId="lang">
+  <TabItem value="ts" label="JavaScript & TypeScript">
 
-# Run code with input
-response = workspace.process.code_run(
-    'name = input("Enter name: ")\nprint(f"Hello, {name}!")',
-    input="Daytona"
-)
-print(response.result)
-
-# Run code with timeout
-response = workspace.process.code_run(
-    'import time\ntime.sleep(2)\nprint("Done")',
-    timeout=5
-)
-print(response.result)
-```
-
-#### TypeScript
 ```typescript
 // Run TypeScript code
 const response = await workspace.process.codeRun(`
@@ -63,30 +42,42 @@ const response = await workspace.process.codeRun(
 console.log(response.result);
 ```
 
-### Code Execution Options
+  </TabItem>
+  <TabItem value="py" label="Python">
 
-#### Python
 ```python
-# Run code with environment variables
-response = workspace.process.code_run(
-    'import os\nprint(os.getenv("MY_VAR"))',
-    env={"MY_VAR": "value"}
-)
+# Run Python code
+response = workspace.process.code_run('''
+def greet(name):
+    return f"Hello, {name}!"
 
-# Run code in specific working directory
-response = workspace.process.code_run(
-    'import os\nprint(os.getcwd())',
-    cwd="/workspace/project"
-)
+print(greet("Daytona"))
+''')
+print(response.result)
 
-# Run code with specific language
+# Run code with input
 response = workspace.process.code_run(
-    'console.log("Hello!");',
-    language="javascript"
+    'name = input("Enter name: ")\nprint(f"Hello, {name}!")',
+    input="Daytona"
 )
+print(response.result)
+
+# Run code with timeout
+response = workspace.process.code_run(
+    'import time\ntime.sleep(2)\nprint("Done")',
+    timeout=5
+)
+print(response.result)
 ```
 
-#### TypeScript
+  </TabItem>
+</Tabs>
+
+### Code Execution Options
+
+<Tabs groupId="lang">
+  <TabItem value="ts" label="JavaScript & TypeScript">
+
 ```typescript
 // Run code with environment variables
 const response = await workspace.process.codeRun(
@@ -107,32 +98,39 @@ const response = await workspace.process.codeRun(
 );
 ```
 
+  </TabItem>
+  <TabItem value="py" label="Python">
+
+```python
+# Run code with environment variables
+response = workspace.process.code_run(
+    'import os\nprint(os.getenv("MY_VAR"))',
+    env={"MY_VAR": "value"}
+)
+
+# Run code in specific working directory
+response = workspace.process.code_run(
+    'import os\nprint(os.getcwd())',
+    cwd="/workspace/project"
+)
+
+# Run code with specific language
+response = workspace.process.code_run(
+    'console.log("Hello!");',
+    language="javascript"
+)
+```
+
+  </TabItem>
+</Tabs>
+
 ## Process Execution
 
 ### Running Commands
 
-#### Python
-```python
-# Execute shell command
-response = workspace.process.process_execute_command("ls -la")
-print(response.output)
+<Tabs groupId="lang">
+  <TabItem value="ts" label="JavaScript & TypeScript">
 
-# Execute command with input
-response = workspace.process.process_execute_command(
-    "read -p 'Enter name: ' name && echo Hello, $name",
-    input="Daytona"
-)
-print(response.output)
-
-# Execute command with timeout
-response = workspace.process.process_execute_command(
-    "sleep 2 && echo Done",
-    timeout=5
-)
-print(response.output)
-```
-
-#### TypeScript
 ```typescript
 // Execute shell command
 const response = await workspace.process.processExecuteCommand("ls -la");
@@ -153,30 +151,37 @@ const response = await workspace.process.processExecuteCommand(
 console.log(response.output);
 ```
 
-### Process Options
+  </TabItem>
+  <TabItem value="py" label="Python">
 
-#### Python
 ```python
-# Execute command with environment variables
-response = workspace.process.process_execute_command(
-    "echo $MY_VAR",
-    env={"MY_VAR": "value"}
-)
+# Execute shell command
+response = workspace.process.process_execute_command("ls -la")
+print(response.output)
 
-# Execute command in specific working directory
+# Execute command with input
 response = workspace.process.process_execute_command(
-    "pwd",
-    cwd="/workspace/project"
+    "read -p 'Enter name: ' name && echo Hello, $name",
+    input="Daytona"
 )
+print(response.output)
 
-# Execute command with shell
+# Execute command with timeout
 response = workspace.process.process_execute_command(
-    "echo $SHELL && echo $PATH",
-    shell=True
+    "sleep 2 && echo Done",
+    timeout=5
 )
+print(response.output)
 ```
 
-#### TypeScript
+  </TabItem>
+</Tabs>
+
+### Process Options
+
+<Tabs groupId="lang">
+  <TabItem value="ts" label="JavaScript & TypeScript">
+
 ```typescript
 // Execute command with environment variables
 const response = await workspace.process.processExecuteCommand(
@@ -197,31 +202,39 @@ const response = await workspace.process.processExecuteCommand(
 );
 ```
 
+  </TabItem>
+  <TabItem value="py" label="Python">
+
+```python
+# Execute command with environment variables
+response = workspace.process.process_execute_command(
+    "echo $MY_VAR",
+    env={"MY_VAR": "value"}
+)
+
+# Execute command in specific working directory
+response = workspace.process.process_execute_command(
+    "pwd",
+    cwd="/workspace/project"
+)
+
+# Execute command with shell
+response = workspace.process.process_execute_command(
+    "echo $SHELL && echo $PATH",
+    shell=True
+)
+```
+
+  </TabItem>
+</Tabs>
+
 ## Background Processes
 
 ### Managing Long-Running Processes
 
-#### Python
-```python
-# Start background process
-process_id = workspace.process.start_background_process(
-    "python -m http.server 8000"
-)
+<Tabs groupId="lang">
+  <TabItem value="ts" label="JavaScript & TypeScript">
 
-# Check process status
-status = workspace.process.get_process_status(process_id)
-print(f"Process {process_id} status: {status}")
-
-# Stop background process
-workspace.process.stop_process(process_id)
-
-# List all running processes
-processes = workspace.process.list_processes()
-for process in processes:
-    print(f"PID: {process.id}, Command: {process.command}")
-```
-
-#### TypeScript
 ```typescript
 // Start background process
 const processId = await workspace.process.startBackgroundProcess(
@@ -242,17 +255,36 @@ processes.forEach(process => {
 });
 ```
 
+  </TabItem>
+  <TabItem value="py" label="Python">
+
+```python
+# Start background process
+process_id = workspace.process.start_background_process(
+    "python -m http.server 8000"
+)
+
+# Check process status
+status = workspace.process.get_process_status(process_id)
+print(f"Process {process_id} status: {status}")
+
+# Stop background process
+workspace.process.stop_process(process_id)
+
+# List all running processes
+processes = workspace.process.list_processes()
+for process in processes:
+    print(f"PID: {process.id}, Command: {process.command}")
+```
+
+  </TabItem>
+</Tabs>
+
 ## Best Practices
 
 1. **Resource Management**
-   ```python
-   # Python - Clean up processes
-   try:
-       process_id = workspace.process.start_background_process("long-running-cmd")
-       # Do work...
-   finally:
-       workspace.process.stop_process(process_id)
-   ```
+   <Tabs groupId="lang">
+     <TabItem value="ts" label="JavaScript & TypeScript">
 
    ```typescript
    // TypeScript - Clean up processes
@@ -264,16 +296,24 @@ processes.forEach(process => {
    }
    ```
 
-2. **Error Handling**
+     </TabItem>
+     <TabItem value="py" label="Python">
+
    ```python
-   # Python
+   # Python - Clean up processes
    try:
-       response = workspace.process.code_run("invalid python code")
-   except ProcessExecutionError as e:
-       print(f"Execution failed: {e}")
-       print(f"Exit code: {e.exit_code}")
-       print(f"Error output: {e.stderr}")
+       process_id = workspace.process.start_background_process("long-running-cmd")
+       # Do work...
+   finally:
+       workspace.process.stop_process(process_id)
    ```
+
+     </TabItem>
+   </Tabs>
+
+2. **Error Handling**
+   <Tabs groupId="lang">
+     <TabItem value="ts" label="JavaScript & TypeScript">
 
    ```typescript
    // TypeScript
@@ -287,6 +327,22 @@ processes.forEach(process => {
        }
    }
    ```
+
+     </TabItem>
+     <TabItem value="py" label="Python">
+
+   ```python
+   # Python
+   try:
+       response = workspace.process.code_run("invalid python code")
+   except ProcessExecutionError as e:
+       print(f"Execution failed: {e}")
+       print(f"Exit code: {e.exit_code}")
+       print(f"Error output: {e.stderr}")
+   ```
+
+     </TabItem>
+   </Tabs>
 
 ## Common Issues
 
@@ -303,4 +359,4 @@ processes.forEach(process => {
 ### Resource Limits
 - Monitor process memory usage
 - Handle process cleanup properly
-- Use appropriate resource constraints    
+- Use appropriate resource constraints                                         
