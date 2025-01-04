@@ -133,12 +133,12 @@ The SDK provides several key features:
 
 ## Next Steps
 
-- Learn about [Configuration](configuration) options
-- Explore [Workspace Management](workspace)
-- See [File System Operations](filesystem)
-- Check out [Git Operations](git)
-- Understand [Process & Code Execution](process)
-- Learn about [LSP Support](lsp)
+- Learn about [Configuration](/configuration) options
+- Explore [Workspace Management](/workspace)
+- See [File System Operations](/filesystem)
+- Check out [Git Operations](/git)
+- Understand [Process & Code Execution](/process)
+- Learn about [LSP Support](/lsp)
 
 ## Common Issues
 
@@ -156,8 +156,8 @@ The SDK provides several key features:
 
 If you encounter any issues:
 
-1. Check the [Troubleshooting Guide](troubleshooting)
-2. Review the [Security Guidelines](security)
+1. Check the [Troubleshooting Guide](/troubleshooting)
+2. Review the [Security Guidelines](/security)
 3. Search existing GitHub issues
 4. Join our community Discord server
-5. Open a new GitHub issue with detailed information      
+5. Open a new GitHub issue with detailed information         

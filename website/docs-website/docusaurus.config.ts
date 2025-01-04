@@ -80,15 +80,15 @@ const config: Config = {
           items: [
             {
               label: 'Getting Started',
-              to: '/docs/getting-started',
+              to: '/',
             },
             {
               label: 'Configuration',
-              to: '/docs/configuration',
+              to: '/configuration',
             },
             {
               label: 'Security',
-              to: '/docs/security',
+              to: '/security',
             },
           ],
         },
@@ -101,7 +101,7 @@ const config: Config = {
             },
             {
               label: 'Troubleshooting',
-              to: '/docs/troubleshooting',
+              to: '/troubleshooting',
             },
           ],
         },

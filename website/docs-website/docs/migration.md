@@ -295,10 +295,10 @@ The following features are deprecated in v1.0:
 
 If you encounter issues during migration:
 
-1. Check the [troubleshooting guide](troubleshooting)
+1. Check the [troubleshooting guide](/troubleshooting)
 2. Search existing GitHub issues
 3. Open a new issue with:
    - SDK versions (old and new)
    - Migration step where issue occurred
    - Error messages
-   - Minimal reproduction code      
+   - Minimal reproduction code         
